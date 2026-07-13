@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Play a retro Nokia-inspired Snake game on dateugards.com." />
+    <title>Retro Snake | dateugards.com</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell" aria-labelledby="game-title">
+      <section class="intro">
+        <p class="eyebrow">dateugards.com presents</p>
+        <h1 id="game-title">Retro Snake</h1>
+        <p class="intro-copy">A tiny old-school Nokia-style Snake game made for quick desktop and mobile play.</p>
+      </section>
+
+      <section class="phone" aria-label="Nokia inspired phone with snake game">
+        <div class="speaker" aria-hidden="true"></div>
+        <div class="brand-row">
+          <span>NOKIA</span>
+          <span>3310</span>
+        </div>
+
+        <div class="screen-wrap">
+          <div class="screen-topbar">
+            <span>●●●</span>
+            <span id="statusText">READY</span>
+            <span>▰▰▱</span>
+          </div>
+          <canvas id="gameCanvas" width="300" height="300" aria-label="Snake game board"></canvas>
+          <div class="screen-footer">
+            <span>Score <strong id="score">0</strong></span>
+            <span>Best <strong id="bestScore">0</strong></span>
+          </div>
+        </div>
+
+        <div class="soft-keys">
+          <button id="startButton" type="button">Start</button>
+          <button id="pauseButton" type="button">Pause</button>
+        </div>
+
+        <div class="keypad" aria-label="Game controls">
+          <button class="key key-up" data-direction="up" type="button" aria-label="Move up">▲</button>
+          <button class="key key-left" data-direction="left" type="button" aria-label="Move left">◀</button>
+          <button class="key key-center" id="centerButton" type="button" aria-label="Start or resume game">OK</button>
+          <button class="key key-right" data-direction="right" type="button" aria-label="Move right">▶</button>
+          <button class="key key-down" data-direction="down" type="button" aria-label="Move down">▼</button>
+        </div>
+
+        <p class="hint">Use arrow keys, WASD, swipe, or tap the keypad.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

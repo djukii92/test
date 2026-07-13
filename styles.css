@@ -1,0 +1,172 @@
+:root {
+  --bg: #171914;
+  --phone: #30343b;
+  --phone-dark: #20232a;
+  --phone-light: #555c67;
+  --screen: #9cac72;
+  --screen-dark: #202914;
+  --ink: #1f2816;
+  --accent: #d8e87b;
+  --white: #f5f2df;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--white);
+  background:
+    radial-gradient(circle at top, rgba(216, 232, 123, 0.18), transparent 30rem),
+    linear-gradient(135deg, #11130f, var(--bg));
+}
+
+button { font: inherit; }
+
+.page-shell {
+  width: min(100%, 68rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1fr minmax(18rem, 25rem);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.intro { max-width: 34rem; }
+
+.eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 10vw, 7rem);
+  line-height: 0.9;
+  text-shadow: 0.25rem 0.25rem 0 #000;
+}
+
+.intro-copy {
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.phone {
+  width: min(100%, 25rem);
+  margin: 0 auto;
+  padding: 1.25rem 1.1rem 1.6rem;
+  border-radius: 2.4rem 2.4rem 3.2rem 3.2rem / 2.8rem 2.8rem 4rem 4rem;
+  background: linear-gradient(145deg, var(--phone-light), var(--phone) 35%, var(--phone-dark));
+  border: 0.35rem solid #15171b;
+  box-shadow: 0 1.6rem 3rem rgba(0, 0, 0, 0.5), inset 0 0.5rem 1rem rgba(255,255,255,0.08);
+}
+
+.speaker {
+  width: 40%;
+  height: 0.55rem;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  background: repeating-linear-gradient(90deg, #111 0 0.35rem, #333 0.35rem 0.7rem);
+}
+
+.brand-row, .screen-topbar, .screen-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-row {
+  margin: 0 0.4rem 0.55rem;
+  color: #d7dbea;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.screen-wrap {
+  padding: 0.8rem;
+  border-radius: 1rem;
+  background: #171a1f;
+  box-shadow: inset 0 0 1.5rem rgba(0,0,0,0.7);
+}
+
+.screen-topbar, .screen-footer {
+  color: var(--ink);
+  background: var(--screen);
+  padding: 0.25rem 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+#gameCanvas {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: var(--screen);
+  border: 0.25rem solid #5d6842;
+  image-rendering: pixelated;
+}
+
+.soft-keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.soft-keys button, .key {
+  color: #edf0f7;
+  background: linear-gradient(145deg, #6b7280, #232831);
+  border: 0.14rem solid #101217;
+  border-radius: 999px;
+  box-shadow: inset 0 0.18rem 0.35rem rgba(255,255,255,0.18), 0 0.25rem 0 #111;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.soft-keys button { padding: 0.7rem 1rem; }
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    ". up ."
+    "left center right"
+    ". down .";
+  gap: 0.65rem;
+}
+
+.key {
+  min-height: 3.15rem;
+  font-size: 1.2rem;
+}
+
+.key:active, .soft-keys button:active { transform: translateY(0.18rem); box-shadow: inset 0 0.18rem 0.35rem rgba(0,0,0,0.3); }
+.key-up { grid-area: up; }
+.key-left { grid-area: left; }
+.key-center { grid-area: center; background: linear-gradient(145deg, #9aa1aa, #3b424d); }
+.key-right { grid-area: right; }
+.key-down { grid-area: down; }
+
+.hint {
+  margin: 1rem 0 0;
+  text-align: center;
+  color: #d7dbea;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding-top: 1.25rem;
+  }
+
+  .intro { text-align: center; margin: 0 auto; }
+  .intro-copy { margin-bottom: 0; }
+  .phone { border-width: 0.25rem; }
+}
